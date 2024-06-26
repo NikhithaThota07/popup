@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>popup</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .container{
+            width: 100%;
+            height: 100vh;
+            background-color: rgb(245, 191, 235);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .btn{
+            height: 30px;
+            width: 150px;
+            font-size: 17px;
+            border: 0;
+            border-radius: 20px;
+            cursor: pointer;
+        }
+        .btn:hover{
+            background-color: rgb(240, 98, 247);
+        }
+        .btn:active{
+            background-color: rgb(112, 57, 109);
+        }
+        .popup{
+            width: 400px;
+            background-color:rgb(236, 243, 235) ;
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translate(-50%,-50%) scale(0.1);
+            text-align: center;
+            padding: 0 30px 30px;
+            border-radius: 10px;
+            visibility: hidden;
+            transition: transform 0.4s top 0.4s;
+        }
+        .open-popup{
+            visibility: visible;
+            top: 50%;
+            transform: translate(-50%,-50%) scale(1);
+        }
+        .popup img{
+            width: 100px;
+            height: 60px;
+            margin-top: -40px;
+            border-radius:50% ;
+            
+        }
+        .popup button{
+            height: 30px;
+            width: 200px;
+            margin-top: 20px;
+            border: 0;
+            border-radius: 6px;
+            background-color: rgb(149, 240, 149);
+            cursor: pointer;
+        }
+        .popup button:hover{
+            background-color: rgb(105, 189, 105);
+        }
+        .popup button:active{
+            background-color: rgb(98, 232, 98);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <button class="btn" onclick="displayPopup()">submit</button>
+        <div class="popup" id="popup">
+            <img src="images/tick.jpeg">
+            <h1>Yay..!!!</h1>
+            <p>You submitted successfully.Thanks!</p>
+            <button onclick="closePopup()">OK</button>
+        </div>
+    </div>
+    <script>
+        let popup = document.getElementById("popup");
+
+        function displayPopup(){
+            popup.classList.add("open-popup");
+        }
+        function closePopup(){
+            popup.classList.remove("open-popup");
+        }
+    </script>
+</body>
+</html>
